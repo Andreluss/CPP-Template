@@ -145,6 +145,33 @@ Int binsearch(Int beg, Int end, UnaryPred pred) // first-true binsearch on [beg,
 
 
 // Helpful structures \(^^)/
+struct Trie {
+    struct Node {
+        array<Node*, 26> _next;
+        Node*& next(char c) { return _next[c-'a']; }
+        Node* push_back(char c) {
+            if(!next(c)) next(c) = new Node();
+            return next(c);
+        }
+        bool is_word = false;
+    };
+    Node* root = new Node();
+    void insert(const string& word) {
+        auto node = root;
+        for (auto c: word) {
+            node = node->push_back(c);
+        }
+        node->is_word = true;
+    }
+    bool contains(const string& word) {
+        auto node = root;
+        for (auto c: word) {
+            node = node->next(c);
+            if (!node) return false;
+        }
+        return node->is_word;
+    }
+};
 template<class T>
 struct fixed_vector
 {
