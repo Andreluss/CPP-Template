@@ -20,7 +20,7 @@ using std::vector, std::array, std::get, std::function,
       std::unordered_multiset, std::istream, 
       std::min, std::max, std::cin, std::cout, std::map;
 using llong = long long;
-using ullong = unsigned llong;
+using ullong = unsigned long long;
 
 // Extra macros for more concise code
 #define debug   if(DEBUG)
@@ -333,17 +333,17 @@ int main()
 /* ------------------------------------------------------------------------- */
 
 void solve() {
-    // Write your code here...
-    vector<pair<int, char>> arr {{0, 't'}, {2, 'm'}, {3, 'c'}, {1, 's'}};
+    vector<pair<int, char>> arr{ {0, 't'}, {2, 'm'}, {3, 'c'}, {1, 's'} };
     echo(arr);
 
-    int test_idx = 4, cnt = 10, result = 42; vector vec {4, 0, -3};
-    echo("In test no. ", test_idx -nb, ", result is ", result -cc(6) -nn);
-    echo("Extra info: ", vec -rng(0, 5) -nn, cnt);
+    int test_idx = 4, cnt = 10, result = 42; vector vec{ 4, 0, -3 };
+    echo("\nIn test no. ", test_idx - nb, ", result is ", result - cc(6) - nn);
+    echo("Extra info: ", vec - rng(0, vec.size()) - nn, cnt);
 
-    Mod = int(1e9+7);
+    Mod = int(1e9 + 7);
     mint answer = 999999999;
     answer *= answer;
-    answer += 2*7*999999999LL + 49;
-    cout << answer << endl; // Prints: 1
+    answer += 2 * 7 * 999999999LL + 49;
+    answer += llong(1e9 + 7) * llong(1e9 + 7);
+    cout << "\nThe answer is: " << answer << endl; // Prints: 1
 }
